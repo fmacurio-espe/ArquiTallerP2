@@ -16,8 +16,7 @@ import org.mongodb.morphia.annotations.Property;
  */
 public class Erroresencontrados {
         
-    @Id
-    private ObjectId id;
+   
 
     @Property("tipo_error")
     private String tipo_error;

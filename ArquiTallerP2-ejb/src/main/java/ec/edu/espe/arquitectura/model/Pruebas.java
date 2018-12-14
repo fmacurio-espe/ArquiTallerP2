@@ -16,7 +16,7 @@ import org.mongodb.morphia.annotations.Property;
  * @author jefferson
  */
 
-@Entity(noClassnameStored = true, value = "pruebas")
+@Embedded
 public class Pruebas {
       @Property("fecha_planificada")
     private String fecha_planificada;

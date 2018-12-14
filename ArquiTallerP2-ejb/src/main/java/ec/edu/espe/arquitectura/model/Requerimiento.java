@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.arquitectura.model;
 
+import java.util.Date;
 import java.util.List;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Embedded;
@@ -19,8 +20,8 @@ import org.mongodb.morphia.annotations.Property;
 
 @Entity(noClassnameStored = true, value = "requerimiento")
 public class Requerimiento {
-    
-    @Id
+   
+     @Id
     private ObjectId id;
 
     @Property("codigo")
@@ -30,21 +31,22 @@ public class Requerimiento {
     private String nombre;
 
     @Property("fecha_planificada")
-    private String fecha_planificada;
+    private Date fecha_planificada;
 
     @Property("fecha_real")
-    private String fecha_real;
+    private Date fecha_real;
 
     @Property("entregable")
     private String entregable;
 
 
     @Property("dias_esfuerzo")
-    private String dias_esfuerzo;
+    private Integer dias_esfuerzo;
 
 
     @Property("estado")
     private String estado;
+    
 
 //    @Embedded
 //    private List<documentoFuncional>documentosfuncionales;
@@ -76,19 +78,19 @@ public class Requerimiento {
         this.nombre = nombre;
     }
 
-    public String getFecha_planificada() {
+    public Date getFecha_planificada() {
         return fecha_planificada;
     }
 
-    public void setFecha_planificada(String fecha_planificada) {
+    public void setFecha_planificada(Date fecha_planificada) {
         this.fecha_planificada = fecha_planificada;
     }
 
-    public String getFecha_real() {
+    public Date getFecha_real() {
         return fecha_real;
     }
 
-    public void setFecha_real(String fecha_real) {
+    public void setFecha_real(Date fecha_real) {
         this.fecha_real = fecha_real;
     }
 
@@ -100,11 +102,11 @@ public class Requerimiento {
         this.entregable = entregable;
     }
 
-    public String getDias_esfuerzo() {
+    public Integer getDias_esfuerzo() {
         return dias_esfuerzo;
     }
 
-    public void setDias_esfuerzo(String dias_esfuerzo) {
+    public void setDias_esfuerzo(Integer dias_esfuerzo) {
         this.dias_esfuerzo = dias_esfuerzo;
     }
 
@@ -131,11 +133,9 @@ public class Requerimiento {
     public String toString() {
         return "Requerimiento{" + "id=" + id + ", codigo=" + codigo + ", nombre=" + nombre + ", fecha_planificada=" + fecha_planificada + ", fecha_real=" + fecha_real + ", entregable=" + entregable + ", dias_esfuerzo=" + dias_esfuerzo + ", estado=" + estado + ", pruebas=" + pruebas + '}';
     }
-
-    
+   
     
     
     
     
 }
-

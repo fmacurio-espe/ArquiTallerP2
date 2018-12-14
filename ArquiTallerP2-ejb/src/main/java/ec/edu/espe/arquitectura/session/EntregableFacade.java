@@ -25,7 +25,7 @@ public class EntregableFacade {
    public String insertarRol(String codigo, String fechaPlan, String fechaRea) throws Exception {
         Morphia morphia = new Morphia();
         morphia.mapPackage("ec.edu.espe.arquitectura.model");
-        Datastore ds = morphia.createDatastore(new MongoClient(), "modRest");
+        Datastore ds = morphia.createDatastore(new MongoClient(), "tallerP2");
 
         System.out.println("conexion establecida");
         try {
@@ -44,7 +44,7 @@ public class EntregableFacade {
      public List<Entregable> findRol() {
         Morphia morphia = new Morphia();
         morphia.mapPackage("ec.edu.espe.arquitectura.model");
-        Datastore ds = morphia.createDatastore(new MongoClient(), "modRest");
+        Datastore ds = morphia.createDatastore(new MongoClient(), "tallerP2");
         System.out.println("conexion establecida");
 
         List<Entregable> roles = ds.createQuery(Entregable.class).asList();
@@ -55,7 +55,7 @@ public class EntregableFacade {
          public void updateRol(String codigoRol,  String fechaPlan, String fechaRea) {
         Morphia morphia = new Morphia();
         morphia.mapPackage("ec.edu.espe.arquitectura.model");
-        Datastore ds = morphia.createDatastore(new MongoClient(), "modRest");
+        Datastore ds = morphia.createDatastore(new MongoClient(), "tallerP2");
         System.out.println("conexion establecida");
 
         Query<Entregable> rolUpdate = ds.createQuery(Entregable.class

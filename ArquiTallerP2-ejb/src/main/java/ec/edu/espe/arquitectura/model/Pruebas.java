@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.arquitectura.model;
 
+import java.util.List;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
@@ -15,8 +16,24 @@ import org.mongodb.morphia.annotations.Property;
  * @author jefferson
  */
 
-@Embedded
-public class Prueba {
-    
+@Entity(noClassnameStored = true, value = "pruebas")
+public class Pruebas {
+    @Id
+    private ObjectId id;
+
+    @Property("fecha_planificada")
+    private String fecha_planificada;
+
+    @Property("fecha_inicio_real")
+    private String fecha_inicio_real;
+
+    @Property("fecha_aprobacion")
+    private String fecha_aprobacion;
+
+    @Property("estado")
+    private String estado;
+
+    @Embedded
+    private List<Erroresencontrados> erroresencontrados;
     
 }

@@ -50,7 +50,7 @@ public class Requerimiento {
 //    private List<documentoFuncional>documentosfuncionales;
 
     @Embedded
-    private List<Prueba>pruebas;
+    private List<Pruebas>pruebas;
 
     public ObjectId getId() {
         return id;
@@ -116,11 +116,11 @@ public class Requerimiento {
         this.estado = estado;
     }
 
-    public List<Prueba> getPruebas() {
+    public List<Pruebas> getPruebas() {
         return pruebas;
     }
 
-    public void setPruebas(List<Prueba> pruebas) {
+    public void setPruebas(List<Pruebas> pruebas) {
         this.pruebas = pruebas;
     }
 

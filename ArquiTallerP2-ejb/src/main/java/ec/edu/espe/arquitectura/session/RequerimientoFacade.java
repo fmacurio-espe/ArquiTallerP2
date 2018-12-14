@@ -23,7 +23,8 @@ public class RequerimientoFacade implements RequerimientoFacadeLocal {
     
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
-     public void insertarRequerimientol(Requerimiento req) {
+     @Override
+     public void insertarRequerimiento(Requerimiento req) {
         Morphia morphia = new Morphia();
 // tell Morphia where to find your classes
 // can be called multiple times with different packages or classes
@@ -35,6 +36,14 @@ public class RequerimientoFacade implements RequerimientoFacadeLocal {
         System.out.println("conexion establecida");
         Requerimiento reqAux=new Requerimiento();
         reqAux.setCodigo(req.getCodigo());
+        reqAux.setNombre(req.getNombre());
+        reqAux.setFecha_planificada(req.getFecha_planificada());
+        reqAux.setFecha_real(req.getFecha_real());
+        reqAux.setDias_esfuerzo(req.getDias_esfuerzo());
+        reqAux.setEntregable(req.getEntregable());
+        reqAux.setEstado("DEF");
+        
+        
         
         
         
@@ -59,7 +68,7 @@ public class RequerimientoFacade implements RequerimientoFacadeLocal {
         rol.setDescripcionRol(descripcionRol);
         rol.setFuncionalidad(funcionalidades);
         */
-        ds.save(req);
+        ds.save(reqAux);
         System.out.println("Requerimiento Creado");
         
     }

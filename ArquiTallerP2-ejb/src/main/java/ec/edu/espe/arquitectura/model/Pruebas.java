@@ -18,10 +18,7 @@ import org.mongodb.morphia.annotations.Property;
 
 @Entity(noClassnameStored = true, value = "pruebas")
 public class Pruebas {
-    @Id
-    private ObjectId id;
-
-    @Property("fecha_planificada")
+      @Property("fecha_planificada")
     private String fecha_planificada;
 
     @Property("fecha_inicio_real")

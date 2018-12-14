@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.arquitectura.api;
 
+import ec.edu.espe.arquitectura.model.Requerimiento;
+import ec.edu.espe.arquitectura.session.RequerimientoFacadeLocal;
+import javax.ejb.EJB;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -13,7 +16,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.POST;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -24,6 +29,10 @@ import javax.ws.rs.core.MediaType;
 @RequestScoped
 public class RequerimientoResource {
 
+    @EJB
+    RequerimientoFacadeLocal EJBreq;
+    Requerimiento req;
+    
     @Context
     private UriInfo context;
 
@@ -52,4 +61,13 @@ public class RequerimientoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
     }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response postJson(Requerimiento content) {
+        System.out.println("los datos ingresados son"+content);
+        EJBreq.insertarRequerimiento(content);
+        return Response.ok().build();
+    }
+    
 }

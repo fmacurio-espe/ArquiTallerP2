@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.arquitectura.session;
 
+import ec.edu.espe.arquitectura.model.Requerimiento;
 import javax.ejb.Local;
 
 /**
@@ -14,4 +15,5 @@ import javax.ejb.Local;
 @Local
 public interface RequerimientoFacadeLocal {
     
+    public void insertarRequerimiento(Requerimiento req);
 }

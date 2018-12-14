@@ -11,48 +11,29 @@ import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
-
 /**
  *
- * @author Jefferson Fonseca
+ * @author jefferson
  */
 
-@Entity(noClassnameStored = true, value = "requerimiento")
-public class Requerimiento {
-    
+@Entity(noClassnameStored = true, value = "pruebas")
+public class Pruebas {
     @Id
     private ObjectId id;
-
-    @Property("codigo")
-    private String codigo;
-
-    @Property("nombre")
-    private String nombre;
 
     @Property("fecha_planificada")
     private String fecha_planificada;
 
-    @Property("fecha_real")
-    private String fecha_real;
+    @Property("fecha_inicio_real")
+    private String fecha_inicio_real;
 
-    @Property("entregable")
-    private String entregable;
-
-
-    @Property("dias_esfuerzo")
-    private String dias_esfuerzo;
-
+    @Property("fecha_aprobacion")
+    private String fecha_aprobacion;
 
     @Property("estado")
     private String estado;
 
-//    @Embedded
-//    private List<documentoFuncional>documentosfuncionales;
-
     @Embedded
-    private List<Pruebas>pruebas;
-
-    
+    private List<Erroresencontrados> erroresencontrados;
     
 }
-

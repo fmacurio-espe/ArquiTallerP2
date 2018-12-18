@@ -34,14 +34,23 @@ public class RequerimientoFacade implements RequerimientoFacadeLocal {
         ds.ensureIndexes();
         //datastore.ensureIndexes();
         System.out.println("conexion establecida");
-        Requerimiento reqAux=new Requerimiento();
-        reqAux.setCodigo(req.getCodigo());
-        reqAux.setNombre(req.getNombre());
-        reqAux.setFecha_planificada(req.getFecha_planificada());
-        reqAux.setFecha_real(req.getFecha_real());
-        reqAux.setDias_esfuerzo(req.getDias_esfuerzo());
-        reqAux.setEntregable(req.getEntregable());
-        reqAux.setEstado("DEF");
+        try{
+            Requerimiento reqAux=new Requerimiento();
+            reqAux.setCodigo(req.getCodigo());
+            reqAux.setNombre(req.getNombre());
+            reqAux.setFecha_planificada(req.getFecha_planificada());
+            reqAux.setFecha_real(req.getFecha_real());
+            reqAux.setDias_esfuerzo(req.getDias_esfuerzo());
+            reqAux.setEntregable(req.getEntregable());
+            reqAux.setEstado("DEF");
+            ds.save(reqAux);
+            System.out.println("Requerimiento Creado");
+        }catch (Exception e) {
+            //throw new Exception("codigo duplicado");
+        }
+        
+        
+        
         
         
         
@@ -68,8 +77,7 @@ public class RequerimientoFacade implements RequerimientoFacadeLocal {
         rol.setDescripcionRol(descripcionRol);
         rol.setFuncionalidad(funcionalidades);
         */
-        ds.save(reqAux);
-        System.out.println("Requerimiento Creado");
+        
         
     }
 

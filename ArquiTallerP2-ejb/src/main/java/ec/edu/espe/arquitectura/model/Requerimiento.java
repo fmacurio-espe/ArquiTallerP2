@@ -11,6 +11,8 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.IndexOptions;
+import org.mongodb.morphia.annotations.Indexed;
 import org.mongodb.morphia.annotations.Property;
 
 /**
@@ -21,10 +23,11 @@ import org.mongodb.morphia.annotations.Property;
 @Entity(noClassnameStored = true, value = "requerimiento")
 public class Requerimiento {
    
-     @Id
+    @Id
     private ObjectId id;
 
     @Property("codigo")
+    //@Indexed(options = @IndexOptions(name = "codigo", unique = true))
     private String codigo;
 
     @Property("nombre")
@@ -47,9 +50,8 @@ public class Requerimiento {
     @Property("estado")
     private String estado;
     
-
-//    @Embedded
-//    private List<documentoFuncional>documentosfuncionales;
+    @Embedded
+    private documentoFuncional documentosfuncionales;
 
     @Embedded
     private List<Pruebas>pruebas;
@@ -126,16 +128,21 @@ public class Requerimiento {
         this.pruebas = pruebas;
     }
 
+    public documentoFuncional getDocumentosfuncionales() {
+        return documentosfuncionales;
+    }
+
+    public void setDocumentosfuncionales(documentoFuncional documentosfuncionales) {
+        this.documentosfuncionales = documentosfuncionales;
+    }
+    
     public Requerimiento() {
     }
 
     @Override
     public String toString() {
-        return "Requerimiento{" + "id=" + id + ", codigo=" + codigo + ", nombre=" + nombre + ", fecha_planificada=" + fecha_planificada + ", fecha_real=" + fecha_real + ", entregable=" + entregable + ", dias_esfuerzo=" + dias_esfuerzo + ", estado=" + estado + ", pruebas=" + pruebas + '}';
-    }
-   
-    
-    
+        return "Requerimiento{" + "id=" + id + ", codigo=" + codigo + ", nombre=" + nombre + ", fecha_planificada=" + fecha_planificada + ", fecha_real=" + fecha_real + ", entregable=" + entregable + ", dias_esfuerzo=" + dias_esfuerzo + ", estado=" + estado + ", documentosfuncionales=" + documentosfuncionales + ", pruebas=" + pruebas + '}';
+    }    
     
     
 }

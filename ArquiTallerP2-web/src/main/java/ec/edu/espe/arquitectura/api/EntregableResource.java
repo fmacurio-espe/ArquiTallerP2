@@ -21,7 +21,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -50,6 +52,8 @@ public class EntregableResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response postJson(Entregable content) throws Exception {
         System.out.println("los datos ingresados son" + content);
+        
+        
         try {
             String p = obj.insertarRol(content.getCodigoEntregable(), content.getFechaPlanificada(), content.getFechaReal());
             return Response.ok(p).build();
@@ -88,7 +92,18 @@ public class EntregableResource {
         System.out.println("los datos recibidos son: ");
         System.out.println(content);
         obj.updateRol(content.getCodigoEntregable(), content.getFechaPlanificada(), content.getFechaReal());
-        return Response.ok().build();
+        return Response.ok("Actualizado").build();
+    }
+    
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/borrar/{identificacion}")
+    public Response deleteJson(@PathParam("identificacion") String identificacion) {
+
+        return Response
+                .status(Response.Status.OK)
+                .entity("Persona eliminada con CI ")
+                .build();
     }
 
 }

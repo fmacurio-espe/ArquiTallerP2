@@ -5,7 +5,9 @@
  */
 package ec.edu.espe.arquitectura.model;
 
+import java.util.Objects;
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.IndexOptions;
 import org.mongodb.morphia.annotations.Indexed;
@@ -15,6 +17,7 @@ import org.mongodb.morphia.annotations.Property;
  *
  * @author jeffe
  */
+@Entity(noClassnameStored = true, value = "Entregable")
 public class Entregable {
     @Id
     private ObjectId id;
@@ -59,4 +62,36 @@ public class Entregable {
     public void setFechaReal(String fechaReal) {
         this.fechaReal = fechaReal;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Entregable other = (Entregable) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Entregable{" + "id=" + id + ", codigoEntregable=" + codigoEntregable + ", fechaPlanificada=" + fechaPlanificada + ", fechaReal=" + fechaReal + '}';
+    }
+    
+    
 }

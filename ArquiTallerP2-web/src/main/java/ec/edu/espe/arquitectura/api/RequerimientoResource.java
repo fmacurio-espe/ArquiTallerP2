@@ -66,8 +66,11 @@ public class RequerimientoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response postJson(Requerimiento content) {
         System.out.println("los datos ingresados son"+content);
-        EJBreq.insertarRequerimiento(content);
-        return Response.ok().build();
+      //  try{
+            EJBreq.insertarRequerimiento(content);
+            return Response.ok().build();
+       
+        
     }
     
 }

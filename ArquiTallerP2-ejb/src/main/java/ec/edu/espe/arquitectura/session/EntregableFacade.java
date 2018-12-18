@@ -54,7 +54,7 @@ public class EntregableFacade {
         return roles;
 
     }
-         public void updateRol(String codigoRol,  String fechaPlan, String fechaRea) {
+    public void updateRol(String codigoRol,  String fechaPlan, String fechaRea) {
         Morphia morphia = new Morphia();
         morphia.mapPackage("ec.edu.espe.arquitectura.model");
         Datastore ds = morphia.createDatastore(new MongoClient(), "tallerP2");
